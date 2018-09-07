@@ -14,6 +14,7 @@
   "author": "webaifie",
   "license": "ISC",
   "dependencies": {
+    "cli-table": "^0.3.1",
     "commander": "^2.17.1"
   }
 }
