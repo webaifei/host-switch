@@ -1,6 +1,6 @@
 {
   "name": "host-switch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "host management tool",
   "main": "bin/index.js",
   "bin": "bin/index.js",
