@@ -1,6 +1,32 @@
 ## host 命令行管理工具
 > switch and manage your hosts easily~
 ![](./screenshots/show.gif)
+
+### install
+```
+npm i host-switch -g
+// check whether host-switch is installed successfully~
+host-swtich
+```
+### 所有命令
+host-switch -h
+```
+ Usage: host-switch [options] [command]
+
+  Options:
+
+    -V, --version    output the version number
+    -h, --help       output usage information
+
+  Commands:
+
+    list             list all the configurated host
+    add <host> [ip]  add [ip => host] to the hosts
+    remove <host>    remove host from the hosts
+    enable <host>    enable the target host
+    disable <host>   disable the target host
+    no-pwd           chmod 666 on your hosts file so you don't need input pwd
+```
 ### 展现所有的hosts配置
 ```
 host-switch list
@@ -16,7 +42,7 @@ sudo host-switch add test.com
 // add `182.8.91.1 aaa.com` to hosts
 sudo host-switch add aaa.com 182.8.91.1
 ```
-> TIPS: 
+> TIPS: 
   1. why need sudo ?
   Beacause maybe you don't have the  permission of wriable for the hosts file.
   2. hate input pwd?
