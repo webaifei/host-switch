@@ -34,10 +34,28 @@ const HOSTS = WINDOWS ?
   '/etc/hosts';
 
 
+/**
+ * 获取所有对象的values 返回一个数组
+ * @param {Object} obj which one need get it's all values
+ */
+const values = (function () {
+  return typeof Object.values === 'function' ?
+    Object.values : function (obj) {
+      var _ret = [];
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          const element = obj[key];
+          _ret.push(element);
+        }
+      }
+      return _ret;
+    }
+})();
+
 // 输出命令
 
 program
-  .version(VERSION)  
+  .version(VERSION)
   .command('list')
   .description("list all the configurated host")
   .action(function () {
@@ -109,7 +127,7 @@ program
   .description('chmod 666 on your hosts file so you don\'t need input pwd')
   .action(function (host) {
     const error = chmod(HOSTS, 666);
-    if(error) {
+    if (error) {
       console.log(logSymbols.error, chalk.bold.red(`failed to chmod ${HOSTS}`));
       console.log(`Error is ${error}`);
     } else {
@@ -205,7 +223,7 @@ function showAll(list) {
   const table = new Table({
     head: ['status', 'host', 'ip']
   });
-  const newlist = list.map(item => Object.values(item));
+  const newlist = list.map(item => values(item));
   // console.log(newlist);
   table.push(...newlist);
   console.log(chalk.yellow(table.toString()));
