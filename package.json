@@ -1,5 +1,5 @@
 {
-  "name": "hosts-switch",
+  "name": "host-switch",
   "version": "1.0.0",
   "description": "host management tool",
   "main": "bin/index.js",
