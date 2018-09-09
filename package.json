@@ -1,5 +1,5 @@
 {
-  "name": "ihost",
+  "name": "hosts-switch",
   "version": "1.0.0",
   "description": "host management tool",
   "main": "bin/index.js",
@@ -11,6 +11,10 @@
     "host",
     "tool"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webaifei/host-switch"
+  },
   "author": "webaifie",
   "license": "ISC",
   "dependencies": {
