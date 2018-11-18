@@ -67,10 +67,12 @@ program
   .description('add [ip => host] to the hosts')
   .action(function (host, ip = "127.0.0.1") {
     readHost()
-      .then(res => addHostIp(res, {
-        host,
-        ip
-      }))
+      .then(res => {
+        return addHostIp(res, {
+          host,
+          ip
+        })
+      })
       .then(() => {
         console.log(logSymbols.success, chalk.red.bold(`add ${host}=>${ip} successfully~`));
       }).catch(err => {
@@ -197,7 +199,7 @@ function writeHost(list) {
 function parseLine(line) {
   // ## 127.0.0.1 xxx.card.com
   var item = {};
-  var validHostReg = /^(#+)?\s*\d{3}\..+/;
+  var validHostReg = /^(#+)?\s*\d{1,3}\..+/;
   // console.log(line, "line");
   if (validHostReg.test(line)) {
     if (/^#/.test(line)) {
